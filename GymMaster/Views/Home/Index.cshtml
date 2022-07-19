@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div style="margin-top:7%;margin-bottom:2%">
+    <h1 style="text-align:center" class="font-weight-bold">Добредојдовте на почетната страна на FitClub</h1>
+    <p class="lead" style="text-align:center" class="font-italic">Доколку барате промена во животниот стил, вие сте на правото место!</p>
+
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-right:2.5%">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/11.png" style="width:100%;">
+                </div>
+
+                <div class="item">
+                    <img src="~/22.png" style="width:100%;">
+                </div>
+
+                <div class="item">
+                    <img src="~/33.png" style="width:100%;">
+                </div>
+
+                <div class="item">
+                    <img src="~/44.png" style="width:100%;">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Претходно</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Следно</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Најди го својот личен тренер</h3>
+        <p>
+            Закажи тренинг со некој од нашите врвно обучени и квалификувани тренери!
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Trainers")">Тренери &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h3>Прати го својот напредок</h3>
+        <p>Со помош на оваа веб-страна можеш да го пратиш својот напредок, да читаш совети за твојот тренинг или мислење за твојата исхрана!</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Личен профил &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h3>Понуди и цени</h3>
+        <p>
+            Нашето мото е висок квалитет, успешен тренинг и врвна услуга за пониски цени.
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Повеќе &raquo;</a></p>
+    </div>
+</div>

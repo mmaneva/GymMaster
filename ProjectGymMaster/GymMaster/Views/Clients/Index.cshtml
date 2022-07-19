@@ -1,0 +1,108 @@
+﻿@model IEnumerable<GymMaster.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+    <p>
+        <br />
+        @if (User.IsInRole("Admin") || User.IsInRole("Trener"))
+        {
+            @Html.ActionLink("Додади нов клиент", "Create")
+        }
+    </p><br /><br />
+<table class="table" id="clientsTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nameClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.heightClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.weightClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numberOfTraining)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phoneClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.addressClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipTraining)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clenskaKartaKlient)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nameClient)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.heightClient)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.weightClient)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.numberOfTraining)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phoneClient)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.addressClient)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tipTraining)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.clenskaKartaKlient)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Информации", "Details", new { id = item.Id })
+
+                        @if (User.IsInRole("Trener"))
+                        {
+                            @Html.ActionLink("Измени", "Edit", new { id = item.Id });
+                        }
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="btn-link js-delete" data-id="@item.Id">Избриши клиент</a>
+                        }
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
+
+@section scripts{ 
+    <script>
+        var table = $("#clientsTable").DataTable();
+        $("#clientsTable .js-delete").click(function () {
+            var button = $(this);
+            bootbox.confirm("Дали сте сигурни?",
+                function (result) {
+                    if (result) {
+                        $.ajax({
+                            method: "GET",
+                            url: "/Clients/Delete/" + button.attr("data-id"),
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+        });
+    </script>
+}

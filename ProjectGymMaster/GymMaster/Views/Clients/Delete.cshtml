@@ -1,0 +1,93 @@
+﻿@model GymMaster.Models.Client
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Дали сте сигурни?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nameClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.heightClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.heightClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weightClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weightClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numberOfTraining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numberOfTraining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phoneClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.addressClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.addressClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipTraining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipTraining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clenskaKartaKlient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clenskaKartaKlient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.infotrener)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.infotrener)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete"  class="btn btn-primary" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>

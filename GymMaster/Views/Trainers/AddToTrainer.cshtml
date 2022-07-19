@@ -1,0 +1,28 @@
+﻿@model GymMaster.Models.TrainerClients
+@{
+    ViewBag.Title = "AddToTrainer";
+}
+
+<h2 style="margin-top:80px">Избери клиент @ViewBag.fullName</h2>
+
+@using (@Html.BeginForm("AddToTrainer", "Trainers"))
+{
+
+    <div class="form-group">
+
+        @Html.DropDownListFor(m => m.ClientId,
+                            new SelectList(Model.clients, "Id", "nameClient"),
+                            new { @class = "form-control" })
+        @Html.HiddenFor(m => m.TrainerId)
+    </div>
+    <div class="form-group">
+
+        <button type="submit" class="btn btn-primary">Додели клиент</button>
+
+    </div><br />
+    <div>
+        @Html.ActionLink("Назад", "Index")
+    </div>
+
+}
+
